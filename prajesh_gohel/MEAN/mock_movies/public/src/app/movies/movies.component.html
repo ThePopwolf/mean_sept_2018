@@ -1,0 +1,25 @@
+<div *ngIf="selected">
+  <div class="row">
+    <h2 class="mr-auto">Movie List</h2>
+    <a [routerLink]="['/movies/new']" class="btn btn-secondary">Add a new movie</a>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Movie Title</th>
+        <th>Average Rating</th>
+        <th>Available Actions</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies">
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.average_rating }}</td>
+        <td> <a [routerLink]="['/movies/', movie._id]"class="btn btn-success">Read Reviews</a> </td>
+        <td> <a [routerLink]="['/movies/', movie._id, 'review']"class="btn btn-secondary">Write Review</a> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet (activate)="hideParent()" (deactivate)="showParent()"></router-outlet>

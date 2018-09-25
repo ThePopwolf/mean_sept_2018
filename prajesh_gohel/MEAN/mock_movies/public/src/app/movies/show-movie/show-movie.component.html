@@ -1,0 +1,22 @@
+<div class="row">
+  <h2 class="mr-auto">Reviews for {{ this.movie.title }}</h2>
+  <button class="btn btn-danger" (click)="deleteMovie(this.movie._id)">Delete Movie</button>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Reviewer</th>
+      <th>Stars</th>
+      <th>Reviews</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let review of this.movie.reviews">
+      <td>{{ review.name }}</td>
+      <td>{{ review.stars }}</td>
+      <td>{{ review.comment }}</td>
+    </tr>
+  </tbody>
+</table>
+<button class="btn btn-secondary" [routerLink]="['/movies']">Back</button>

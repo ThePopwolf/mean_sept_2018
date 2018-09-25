@@ -23,15 +23,16 @@
     <div class="col-8" style="overflow: scroll; height: 600px;">
       <div class="row mb-3" *ngFor="let cake of cakes">
         <div class="col-6">
-          <img style="width: 350px;" src="{{cake.imageURL}}" alt="Cake">
+          <img style="width: 350px;" src="{{cake.imageURL}}" alt="Cake" (click)="cakeToShow(cake)">
         </div>
         <div class="col-6">
-          <form (submit)="createRating()">
-            <p>{{this.rating | json}}</p>
+          <form (submit)="createRating(cake)">
+            <p>{{cake.comment | json}}</p>
+            <p>{{cake.stars | json}}</p>
             <div class="form-group">
               <label for="rated">Rating:</label>
-              <select class="form-control" id="rated" name="this.rating.stars" [(ngModel)]="this.rating.stars">
-                <option value="5">5 Stars</option>
+              <select class="form-control" id="rated" name="cake.stars" [(ngModel)]="cake.stars">
+                <option value="5" selected>5 Stars</option>
                 <option value="4">4 Stars</option>
                 <option value="3">3 Stars</option>
                 <option value="2">2 Stars</option>
@@ -39,7 +40,7 @@
               </select>
             </div>
             <div class="form-group">
-              <textarea class="form-control" rows="4" placeholder="Type your comment here" name="this.rating.comment" [(ngModel)]="this.rating.comment"></textarea>
+              <textarea class="form-control" rows="4" placeholder="Type your comment here" name="cake.comment" [(ngModel)]="cake.comment"></textarea>
             </div>
             <button class="btn btn-success" type="submit">Rate!</button>
           </form>
@@ -47,4 +48,5 @@
       </div>
     </div>
   </div>
+  <app-info *ngIf="cake" [cakeToShow]="cake"></app-info>
 </div>

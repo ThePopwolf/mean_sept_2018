@@ -5,4 +5,6 @@ const mongoose = require('mongoose'),
 module.exports = function(app) {
   app.get('/cakes', cakes.all);
   app.post('/cakes', cakes.create);
+  app.put('/cakes/rating/:id', cakes.update);
+  app.get('/cakes/:id', cakes.show);
 }

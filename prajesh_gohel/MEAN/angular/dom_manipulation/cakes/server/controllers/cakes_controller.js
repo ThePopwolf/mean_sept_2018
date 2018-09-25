@@ -21,5 +21,28 @@ module.exports = {
       }
       return res.json({ cake: cake });
     });
+  },
+  update: function(req, res) {
+    Cake.findByIdAndUpdate({
+      _id: req.params.id
+    }, {$push: {
+      ratings: {
+        stars: req.body.stars,
+        comment: req.body.comment
+      }
+    }}, { runValidators: true }, function(err, cake) {
+      if (err) {
+        return res.json({ error: err });
+      }
+      return res.json({ cake: cake.ratings });
+    });
+  },
+  show: function(req, res) {
+    Cake.findOne({ _id: req.params.id }, function(err, cake) {
+      if (err) {
+        return res.json({ error: err });
+      }
+      return res.json({ cake: cake });
+    });
   }
 }

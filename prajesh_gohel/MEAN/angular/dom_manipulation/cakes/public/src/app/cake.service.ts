@@ -14,4 +14,12 @@ export class CakeService {
   addCake(newCake) {
     return this._http.post('/cakes', newCake);
   }
+
+  addRating(id, rating) {
+    return this._http.put('/cakes/rating/'+id, rating);
+  }
+
+  findCake(id) {
+    return this._http.get('/cakes/'+id);
+  }
 }

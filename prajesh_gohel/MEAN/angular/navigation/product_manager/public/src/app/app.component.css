@@ -1,0 +1,8 @@
+li:first-child {
+  margin-left: 0px;
+}
+
+li {
+  display: inline-block;
+  margin-left: 5%;
+}

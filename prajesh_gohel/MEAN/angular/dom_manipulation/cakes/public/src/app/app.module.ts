@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms'
 import { CakeService } from './cake.service';
 
 import { AppComponent } from './app.component';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

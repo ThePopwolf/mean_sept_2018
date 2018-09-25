@@ -1,0 +1,31 @@
+<h2>Submit a movie and your review</h2>
+<div *ngIf="this.flash">
+  <div *ngFor="let x of this.flash">
+    <p class="alert alert-danger">{{ x }}</p>
+  </div>
+</div>
+<form (submit)="createMovie()" class="col-4">
+  <div class="form-group">
+    <input class="form-control" type="text" name="newMovie.title" [(ngModel)]="newMovie.title" placeholder="Movie Title">
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="text" name="newMovie.name" [(ngModel)]="newMovie.name" placeholder="Your Name">
+  </div>
+  <div class="form-group">
+    <label>Stars</label>
+    <select class="form-control"  name="newMovie.stars" [(ngModel)]="newMovie.stars">
+      <option value="5" selected>5 Stars</option>
+      <option value="4">4 Stars</option>
+      <option value="3">3 Stars</option>
+      <option value="2">2 Stars</option>
+      <option value="1">1 Stars</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" rows="4" placeholder="Your review" name="newMovie.comment" [(ngModel)]="newMovie.comment"></textarea>
+  </div>
+  <div class="row">
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a class="btn btn-danger text-white" [routerLink]="['/movies']">Cancel</a>
+  </div>
+</form>

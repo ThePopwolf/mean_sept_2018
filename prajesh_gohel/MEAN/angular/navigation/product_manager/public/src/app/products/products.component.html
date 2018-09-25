@@ -1,0 +1,11 @@
+<div class="container" *ngIf="selected">
+  <div class="card col-3" style="display: inline-block;" *ngFor="let product of products">
+    <img src="{{product.imageURL}}" alt="Product" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="card-text">${{product.price}}</p>
+    </div>
+  </div>
+</div>
+
+<router-outlet (activate)="dataFromChild()" (deactivate)="dataFromChild()"></router-outlet>

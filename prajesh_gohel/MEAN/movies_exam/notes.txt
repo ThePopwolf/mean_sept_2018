@@ -1,0 +1,43 @@
+For a Red Belt:
+
+CRUD operations all working
+  (DONE) Able to create new movies
+  (DONE) All movies are displayed upon visiting the website
+  (DONE) User may choose to read the reviews of a particular movie
+  (DONE) Able to add reviews for each movie
+  (DONE) Able to delete each movie
+
+Routing
+  (DONE) Root route redirects to '/movies' to display all the movies
+  (DONE) Route ‘movies/new’ displays the form to create a new movie
+  (DONE) Successful creation and cancel redirect to the root route
+  (DONE) Route ‘/movies/:id’ displays the reviews of a particular movie and the delete button
+  Route ‘/movies/:id/review’ displays the form to add a review for a particular movie
+  Successful submission or clicking cancel redirects to the movie's reviews page
+
+Backend validations
+  (DONE) All movies must have a title of at least 3 characters
+  (DONE) Upon creating a movie, a review must be provided
+  (DONE) Reviews must have the name of the reviewer, a star rating, and content
+  (DONE) A reviewer's name must be at least 3 characters
+  (DONE) A review's star rating must be between 1 and 5 stars
+  (DONE) The content of a review must be at least 3 characters
+  (DONE) Error messages inform the user if a movie or review is not meeting requirements
+  (DONE) Error messages are custom-written (not the mongoose default messages)
+
+HTML and CSS reflect the wireframe to at least 75% accuracy
+
+For a Black Belt:
+
+Deployed, and not on Heroku
+ALL of the following four features:
+  Provide an extra column in the table on the root route to display the calculated average star rating for each movie based on its reviews
+
+  Rather than route to '/movies/new' to display the form to create a new movie, have the form nested within the component displayed at '/movies' when needed
+
+  Implement Angular front end validations when creating a new review
+    Errors should pop up as they are generated
+    Disable the submit button until the form passes all validations
+    Do this in addition to backend validations, front end validations do not replace backend validations
+
+  On the route '/movies/:id', include a Delete button for each review, which removes the review from the database and from the view. Do not redirect to a different route, the user should stay on '/movies/:id'.
